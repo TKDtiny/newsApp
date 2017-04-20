@@ -1,0 +1,693 @@
+@charset "UTF-8";
+/*预处理部分*/
+html,body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+}
+body{
+    padding-top: 76px;
+    overflow: hidden;
+}
+header{
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+}
+.aBtn{
+    display: block;
+}
+h1{
+    margin: 0;
+    padding: 0;
+}
+ul,li{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+    color: #626262;
+    font: 16px/36px "微软雅黑";
+}
+/*滚动条设置*/
+::-webkit-scrollbar { width: 0;height: 0;}
+::-webkit-scrollbar-track-piece {
+    background-color: #f0f0f0;
+    box-shadow: inset 0 0 4px rgba(15, 25, 78, 0.1);
+    margin: 0px;
+}
+::-webkit-scrollbar-thumb {
+    width: 10px;
+    min-height: 10px;
+    background-color: #11278a;
+    border-radius: 7px;
+}
+::-webkit-scrollbar-thumb:vertical:hover {
+    background-color: #2a90d1;
+    box-shadow: 0 2px 8px rgba(59, 63, 80, 0.8);
+}
+
+
+
+
+
+/*header内top_bar及其子元素样式*/
+.top_bar{
+    width: 100%;
+    height: 40px;
+    background-color: #d43d3d;
+    position: relative;
+}
+.top_bar>div{
+    position: absolute;
+}
+.operation_l{
+    width: 28px;
+    height: 28px;
+    left: 10px;
+    top:6px;
+}
+.operation_m{
+    width: 100px;
+    height: 40px;
+    left: calc(50% - 50px);
+}
+.operation_r{
+    width: 28px;
+    height: 28px;
+    right: 10px;
+    top:6px;
+}
+.e_mail{
+    width: 100%;
+    height: 100%;
+    background-image: url("../img/icon/e-mail.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+}
+.seacrh{
+    width: 100%;
+    height: 100%;
+    background-image: url("../img/icon/search.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+}
+.logo{
+    width: 80%;
+    height: 100%;
+    background-image: url("../img/icon/logo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    float: left;
+}
+.refresh{
+    width: 20%;
+    height: 100%;
+    background-image: url("../img/icon/refresh.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 80%;
+    float: left;
+}
+/*nav及其子元素样式*/
+nav{
+    width: 100%;
+    height: 36px;
+    margin: 0;
+    background-color: #f1f1f1;
+}
+.navList{
+    width: 90%;
+    height: 100%;
+    overflow: hidden;
+    overflow-x: scroll;
+    display: inline-block;
+    white-space: nowrap;
+}
+.navList li{
+    margin: 0 10px;
+    display: inline-block;
+}
+.navBtn{
+    width: 10%;
+    height: 100%;
+    float: right;
+    display: inline-block;
+    background-image: url("../img/icon/add.png");
+    background-repeat: no-repeat;
+    background-size: 60%;
+    background-position: center;
+    box-shadow: -1px -4px 8px 2px #bbb;
+}
+
+/*中间部分样式*/
+article{
+    width: 100%;
+    height: calc(100% - 48px);
+    padding: 0 10px;
+    box-sizing: border-box;
+    overflow-y:scroll;
+}
+.selectedBtn{
+    color: #d65740;
+}
+article > div{
+    width: 100%;
+    margin-top: 12px;
+    box-sizing: border-box;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eeeeee;
+}
+article > div >h1{
+    font: 16px/24px "微软雅黑";
+    margin: 6px 0;
+}
+article > div > ul{
+    width: 100%;
+    height: 100px;
+}
+article > div > ul > li{
+    width: 32%;
+    height: 100%;
+    display: inline-block;
+    margin-left: 1%;
+}
+article > div > ul > li >img{
+    width: 100%;
+    height: 100%;
+}
+.videoBox {
+	position: relative;
+}
+.videoBox > img{
+    width: 100%;
+    max-height: 180px;
+}
+.videoBox > span{
+	position: absolute;
+    display: inline-block;
+    width: 100%;
+    top: 0;
+    left: 0;
+    font: 14px/18px "微软雅黑";
+    color: aliceblue;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.playIcon{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background-image: url(//s3a.pstatp.com/growth/mobile_list/image/playicon_video@3x_dcf536ff888c86df29f147413a7158ca.png);
+    background-repeat: no-repeat;
+    background-size: 20%;
+    background-position: center;
+}
+
+/*右侧隐藏框*/
+.rBox {
+	width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 100%;
+    background-color: #ffffff;
+    overflow: hidden;
+    z-index: 200;
+    transition: all 0.6s ease;
+}
+.showRBox{
+    left: 0%;
+}
+.head {
+	width: 100%;
+    height: 40px;
+    background-color: #d43d3d;
+    position: relative;
+    top: 0;
+}
+.head i{
+    display: block;
+	width: 32px;
+    height: 100%;
+    font-style: none;
+    font:bold 24px "微软雅黑";
+    color: #fff;
+    text-align: center;
+}
+.articleContent {
+	width: 100%;
+    height: 100%;
+    padding:6px 10px 60px 10px;
+    box-sizing: border-box;
+    text-align: center;
+    overflow-y: scroll;
+}
+.newsContentMask {
+	overflow: hidden;
+    height: 680px;
+}
+.contentMask {
+	width: 100%;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.75);
+    color: #00baff;
+    font: 16px/40px "微软雅黑";
+    cursor: pointer;
+}
+.contentMask mark{
+    display: inline-block;
+    background: none;
+    transform: rotate(90deg);
+    color: #00baff;
+}
+.newsContent img{
+	width: 100%;
+    height: auto;
+    margin-top: 6px;
+}
+.newsContent p{
+	padding: 0;
+    margin: 0;
+    font: 16px/26px "微软雅黑";
+    text-align: left;
+}
+.articleContent h1{
+	font:bold 20px/32px "微软雅黑";
+    text-align: left;
+}
+.comment{
+    text-align: left;
+    width: 100%;
+    margin-top: 10px;
+    padding-bottom: 20px;
+}
+.comment h3{
+	font: bold 18px/64px "微软雅黑";
+    display: inline-block;
+    margin: 0;
+    border-bottom: 1px solid #d43d3d;
+}
+.comment i{
+	background-image: url(../img/icon/head.png);
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: contain;
+    display: inline-block;
+    width: 100%;
+    height: 24px;
+    text-indent: 2em;
+    font-style: normal;
+    font: 14px "微软雅黑";
+    margin-bottom: 10px;
+    color: #9a9a9a;
+}
+.comment span{
+    display: inline-block;
+    width: 100%;
+    font: 16px/24px "微软雅黑";
+    text-indent: 2em;
+}
+.delChannel{
+    font: 12px/24px "微软雅黑";
+    text-align: left;
+    display: inline-block;
+    width: 100%;
+    color: #9d9d9d;
+}
+
+.navTopA{
+    width: 100%;
+    min-height: 100px;
+}
+.navTopA li{
+	width: 80px;
+    height: 35px;
+    display: block;
+    float: left;
+    margin-left: 8px;
+    margin-bottom: 6px;
+    border: 1px solid #9d9d9d;
+    box-sizing: border-box;
+}
+.navBottomA{
+    width: 100%;
+    min-height: 100px;
+}
+.navBottomA li{
+	width: 80px;
+    height: 35px;
+    display: block;
+    float: left;
+    margin-left: 8px;
+    margin-bottom: 6px;
+    border: 1px solid #9d9d9d;
+    box-sizing: border-box;
+}
+
+footer{
+    width: 100%;
+    height: 48px;
+    background-color: #ffffff;
+    position: fixed;
+    bottom: 0;
+    z-index: 300;
+    border-top: 1px solid #e8e8e8;
+}
+footer div{
+    width: 33%;
+    height: 100%;
+    float: left;
+    text-align: center;
+    font: 12px/76px "微软雅黑";
+    position: relative;
+}
+.home {
+	color: #d43d3d;
+}
+.homeImg{
+    display: block;
+    position: absolute;
+    top: 6px;
+    left: calc(50% - 13.5px);
+    width: 27px;
+    height: 24px;
+    background-image: url(../img/icon/home.png);
+    background-repeat: no-repeat;
+    background-position: top;
+}
+.followImg {
+    display: block;
+    position: absolute;
+    top: 6px;
+    left: calc(50% - 13.5px);
+    width: 27px;
+    height: 24px;
+    background-image: url(../img/icon/love.png);
+    background-repeat: no-repeat;
+    background-position: top ;
+}
+.loginImg {
+    display: block;
+    position: absolute;
+    top: 6px;
+    left: calc(50% - 13.5px);
+    width: 27px;
+    height: 24px;
+    background-image: url(../img/icon/head.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: top;
+}
+.imgBottom{
+    background-position: bottom;
+}
+.followContent {
+    width: 100%;
+    height: calc(100% - 48px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #ffffff;
+    overflow: hidden;
+    z-index: 200;
+    display: none;
+}
+.loginContent {
+    width: 100%;
+    height: calc(100% - 48px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #ebebeb;
+    overflow: hidden;
+    z-index: 200;
+    display: none;
+}
+
+.flHead{
+    width: 100%;
+    height: 36px;
+    font: 18px/36px "微软雅黑";
+    position: relative;
+    border-bottom: 1px solid #c6c6c6;
+}
+.flHead span{
+    display: block;
+	width: 100%;
+    height: 100%;
+    text-align: center;
+}
+.flHead i{
+	display: block;
+    width: 32px;
+    height: 32px;
+    font-size: 32px;
+    line-height: 30px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-style: normal;
+}
+.buddy {
+	width: 100%;
+    height: 48px;
+    font: 18px/48px "微软雅黑";
+    border-bottom: 1px solid #c6c6c6;
+    text-indent: 3em;
+    background-image: url(../img/icon/buddy.png);
+    background-repeat: no-repeat;
+    background-size: 40px;
+    background-position: 6px;
+    position: relative;
+}
+.marquee {
+	width: 100%;
+    min-height: 536px;
+    background-image: url(../img/icon/marquee.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.marquee span{
+	display: block;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 66%;
+}
+.loginHead {
+	width: 100%;
+    height: 160px;
+    background-color: #656565;
+    position: relative;
+}
+.loginHead > div{
+    width: 300px;
+    height: 64px;
+	text-align: center;
+    position: absolute;
+    top: 30px;
+    left: calc(50% - 150px);
+}
+.lgImg1{
+    display: inline-block;
+	width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background-color: aliceblue;
+    background-image: url(../img/icon/call.png);
+    background-repeat: no-repeat;
+    background-size: 32px;
+    background-position: center;
+}
+.lgImg2{
+    display: inline-block;
+	width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background-color: aliceblue;
+    background-image: url(../img/icon/wexin.png);
+    background-repeat: no-repeat;
+    background-size: 32px;
+    background-position: center;
+}
+.lgImg3{
+    display: inline-block;
+	width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background-color: aliceblue;
+    background-image: url(../img/icon/qq.png);
+    background-repeat: no-repeat;
+    background-size: 32px;
+    background-position: center;
+}
+.loginHead i{
+	width: 24px;
+    height: 24px;
+    display: block;
+    font: 24px/24px "微软雅黑";
+    font-style: normal;
+    color: #e8e8e8;
+    position: absolute;
+    top: 50px;
+    right: 10px;
+}
+.loginHead span{
+    display: block;
+    width: 100%;
+    text-align: center;
+	font: 16px/64px "微软雅黑";
+    position: absolute;
+    bottom: 0;
+    color: #c4c4c4;
+}
+
+.loginNav {
+	width: 100%;
+    height: 48px;
+    background-color: #fff;
+    margin-bottom: 10px;
+    font: 12px/72px "微软雅黑";
+    border-top: 1px solid #e2e2e2;
+    box-sizing: border-box;
+}
+.loginNav div{
+	width: 33%;
+    height: 100%;
+    display: inline-block;
+    float: left;
+    text-align: center;
+    position: relative;
+}
+.star {
+	display: block;
+    position: absolute;
+    top: 4px;
+    left: calc(50% - 12px);
+    width: 24px;
+    height: 24px;
+    background-image: url(../img/icon/star.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: top;
+}
+.history {
+    display: block;
+    position: absolute;
+    top: 4px;
+    left: calc(50% - 12px);
+    width: 24px;
+    height: 24px;
+    background-image: url(../img/icon/history.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: top;
+}
+.moon {
+	display: block;
+    position: absolute;
+    top: 4px;
+    left: calc(50% - 12px);
+    width: 24px;
+    height: 24px;
+    background-image: url(../img/icon/moon.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: top;
+}
+.loginContent p{
+    margin: 0;
+	width: 100%;
+    height: 48px;
+    line-height: 48px;
+    padding-left: 10px;
+    background-color: #fff;
+    border-top: 1px solid #e2e2e2;
+    box-sizing: border-box;
+}
+.loginContent p.p1 {
+    margin-bottom: 10px;
+}
+.loginContent p > mark{
+    background: none;
+    font: 14px/48px "微软雅黑";
+    float: right;
+    margin-right: 20px;
+}
+.tBox {
+    position: fixed;
+    top: 100%;
+    left: 0;
+	z-index: 310;
+    width: 100%;
+    height: 96%;
+    background-color: #ffffff;
+    border-radius: 10px 10px 0 0;
+    transition: all 0.6s ease;
+}
+.showTBox {
+	top: 4%;
+}
+.tBox i{
+	width: 24px;
+    height: 24px;
+    font: 24px "微软雅黑";
+    display: block;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+}
+.tBox P{
+	width: 100%;
+    height: 48px;
+    position: absolute;
+    top: 24px;
+    font: 18px/48px "微软雅黑";
+    text-align: center;
+}
+.tBox input{
+    box-sizing: border-box;
+	width: calc(100% - 40px);
+    height: 36px;
+    font: 14px/36px "微软雅黑";
+    padding-left: 20px;
+    border: 1px solid #e8e8e8;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    margin-left:  20px;
+    outline: none;
+}
+.t120 {
+	margin-top: 120px;
+}
+.tBox span{
+	width: calc(100% - 40px);
+    display: block;
+    text-align: center;
+    margin-left:  20px;
+    margin-bottom: 20px;
+    font: 12px "微软雅黑";
+}
+.tBox button{
+	width: calc(100% - 40px);
+    height: 36px;
+    text-align: center;
+    margin-left:  20px;
+    font: 18px "微软雅黑";
+    border-radius: 20px;
+    background-color: #e28181;
+    border: 0;
+    color: aliceblue;
+    outline: none;
+}
